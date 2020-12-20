@@ -1,3 +1,4 @@
+require 'pry'
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
@@ -12,7 +13,7 @@ class Song
     DB[:conn].results_as_hash = true
 
     sql = "pragma table_info('#{table_name}')"
-
+binding.pry
     table_info = DB[:conn].execute(sql)
     column_names = []
     table_info.each do |row|
